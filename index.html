@@ -84,14 +84,17 @@
     }
 
     .nav-logo {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
+      display: inline-flex;
+      align-items: center;
       text-decoration: none;
+      flex-shrink: 0;
     }
 
-    .nav-logo span { color: var(--red); }
+    .nav-logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
 
     .nav-cta {
       font-family: var(--font-body);
@@ -805,14 +808,11 @@
       gap: 12px;
     }
 
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      letter-spacing: 0.04em;
-      color: var(--white);
+    .footer-logo img {
+      height: 52px;
+      width: auto;
+      display: block;
     }
-
-    .footer-logo span { color: var(--red); }
 
     .footer-info {
       font-size: 0.8rem;
@@ -947,7 +947,9 @@
   <!-- ── NAV ───────────────────────────────────────── -->
   <nav aria-label="Site navigation">
     <div class="container">
-      <a href="#" class="nav-logo" aria-label="ACE Performance Gym">ACE<span>.</span></a>
+      <a href="#" class="nav-logo" aria-label="ACE Performance Gym">
+        <img src="ace-logo.png" alt="ACE Performance Gym" />
+      </a>
       <a href="#book" class="nav-cta">Book Free Consult</a>
     </div>
   </nav>
@@ -1314,7 +1316,9 @@
   <!-- ── FOOTER ─────────────────────────────────────── -->
   <footer>
     <div class="container">
-      <div class="footer-logo">ACE<span>.</span></div>
+      <div class="footer-logo">
+        <img src="ace-logo.png" alt="ACE Performance Gym" />
+      </div>
       <div class="footer-info">
         1700 King Rd, Unit 32, King City, ON L7B 0N1<br/>
         <a href="tel:9058333130">(905) 833-3130</a> &nbsp;·&nbsp;
