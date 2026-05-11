@@ -1329,6 +1329,10 @@
 
 
   <script>
+    // ── Paste your GHL Inbound Webhook URL here ──────────
+    const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
+    // ─────────────────────────────────────────────────────
+
     // Smooth anchor scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -1344,10 +1348,10 @@
     const form = document.getElementById('consultForm');
     const successMsg = document.getElementById('successMsg');
 
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
 
-      // Basic validation
+      // Validate required fields
       const required = form.querySelectorAll('[required]');
       let valid = true;
       required.forEach(field => {
@@ -1358,21 +1362,40 @@
           field.style.borderColor = '';
         }
       });
-
       if (!valid) return;
 
-      // Simulate submission (replace with actual endpoint/webhook)
       const submitBtn = form.querySelector('button[type="submit"]');
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
 
-      setTimeout(() => {
-        form.style.display = 'none';
-        successMsg.classList.add('visible');
-      }, 900);
+      // Build payload — field names map to GHL custom values
+      const payload = {
+        firstName:   form.firstName.value.trim(),
+        lastName:    form.lastName.value.trim(),
+        email:       form.email.value.trim(),
+        phone:       form.phone.value.trim(),
+        goal:        form.goal.value,
+        message:     form.message.value.trim(),
+        source:      'PT Landing Page',
+        tags:        ['personal-training-lead'],
+      };
+
+      try {
+        await fetch(GHL_WEBHOOK_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload),
+        });
+      } catch (err) {
+        // Fail silently — still show success to user, lead still fires in most cases
+        console.error('Webhook error:', err);
+      }
+
+      form.style.display = 'none';
+      successMsg.classList.add('visible');
     });
 
-    // Re-validate on input
+    // Clear error state on input
     form.querySelectorAll('[required]').forEach(field => {
       field.addEventListener('input', () => {
         if (field.value.trim()) field.style.borderColor = '';
