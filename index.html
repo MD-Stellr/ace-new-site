@@ -956,6 +956,35 @@
       background: rgba(255,255,255,0.08);
     }
 
+    /* ── Pillars Marquee ────────────────────────────── */
+    .pillars-marquee {
+      overflow: hidden;
+      width: 100%;
+      line-height: 0;
+    }
+
+    .pillars-track {
+      display: flex;
+      width: max-content;
+      animation: pillars-scroll 28s linear infinite;
+    }
+
+    .pillars-track img {
+      height: 52px;
+      width: auto;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    @keyframes pillars-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pillars-track { animation: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -1035,6 +1064,24 @@
         Results in 30 Days
       </div>
 
+    </div>
+  </div>
+
+  <!-- ── PILLARS MARQUEE ──────────────────────────────── -->
+  <div class="pillars-marquee" aria-hidden="true">
+    <div class="pillars-track">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
+      <img src="pillars-banner.png" alt="">
     </div>
   </div>
 
