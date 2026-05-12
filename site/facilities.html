@@ -106,8 +106,15 @@
       .img-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
+    @media (max-width: 768px) {
+      .facility-section { padding: 64px 0; }
+      .amenities-extra  { padding: 64px 0; }
+    }
+
     @media (max-width: 560px) {
       .img-grid { grid-template-columns: 1fr; }
+      .facility-section { padding: 48px 0; }
+      .amenities-extra  { padding: 48px 0; }
     }
   </style>
 </head>
@@ -123,10 +130,11 @@
       </button>
       <div class="nav-menu" id="navMenu">
         <a href="index.html" class="nav-link">Home</a>
-        <div class="nav-item open">
-          <button class="nav-link dropdown-btn active" aria-expanded="true" aria-haspopup="true">Services <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+        <div class="nav-item">
+          <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">Services <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
           <div class="nav-dropdown" role="menu">
             <a href="personal-training.html" role="menuitem">Personal Training</a>
+            <a href="personal-training.html#inbody" role="menuitem">InBody 770</a>
             <a href="facilities.html" role="menuitem" style="color:var(--white)">Facilities</a>
           </div>
         </div>
@@ -277,7 +285,7 @@
     </section>
 
     <!-- ADDITIONAL AMENITIES -->
-    <section style="padding:88px 0; background:var(--black-2); border-top:1px solid var(--glass-border);" aria-labelledby="amenities-h2">
+    <section class="amenities-extra" style="background:var(--black-2); border-top:1px solid var(--glass-border); padding:88px 0;" aria-labelledby="amenities-h2">
       <div class="container">
         <span class="section-label">More Amenities</span>
         <h2 class="section-title" id="amenities-h2">Everything You<br/>Need Under <em>One Roof</em></h2>

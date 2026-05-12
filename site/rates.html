@@ -124,9 +124,112 @@
       color: var(--white);
     }
 
+    .pricing-alt {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      margin-bottom: 24px;
+    }
+    .pricing-alt-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 6px;
+    }
+    .pricing-alt-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.85rem;
+      gap: 8px;
+    }
+    .pricing-alt-row .alt-price {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--gray-2);
+      line-height: 1;
+    }
+    .pricing-alt-row .alt-detail {
+      font-size: 0.72rem;
+      color: var(--gray-3);
+    }
+
+    .class-packs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .pack-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-lg);
+      padding: 28px 22px;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+    .pack-card:hover {
+      border-color: rgba(215,26,33,0.28);
+      transform: translateY(-3px);
+    }
+    .pack-price {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .pack-credits {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+      margin-bottom: 16px;
+    }
+    .pack-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .pack-card p {
+      font-size: 0.8rem;
+      color: var(--gray-3);
+      line-height: 1.6;
+    }
+
+    .extras-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .pack-card-horizontal {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .class-packs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 768px) {
-      .add-ons-grid { grid-template-columns: 1fr; }
-      .hours-grid { grid-template-columns: 1fr; }
+      .add-ons-grid  { grid-template-columns: 1fr; }
+      .hours-grid    { grid-template-columns: 1fr; }
+      .extras-grid   { grid-template-columns: 1fr; }
+      .rates-section { padding: 64px 0; }
+      .add-ons-section { padding: 64px 0; }
+      .hours-section { padding: 64px 0; }
+    }
+    @media (max-width: 560px) {
+      .class-packs-grid { grid-template-columns: 1fr; }
+      .pack-card-horizontal { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .rates-section { padding: 48px 0; }
+      .add-ons-section { padding: 48px 0; }
+      .hours-section { padding: 48px 0; }
     }
   </style>
 </head>
@@ -142,6 +245,7 @@
           <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">Services <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
           <div class="nav-dropdown" role="menu">
             <a href="personal-training.html" role="menuitem">Personal Training</a>
+            <a href="personal-training.html#inbody" role="menuitem">InBody 770</a>
             <a href="facilities.html" role="menuitem">Facilities</a>
           </div>
         </div>
@@ -176,6 +280,7 @@
 
   <main>
 
+    <!-- MEMBERSHIPS -->
     <section class="rates-section" aria-labelledby="rates-h2">
       <div class="container">
 
@@ -186,88 +291,135 @@
 
         <span class="section-label">Memberships</span>
         <h2 class="section-title" id="rates-h2">Choose Your <em>Plan</em></h2>
-        <p class="section-sub">All memberships include full facility access, towel service, and a complimentary InBody 770 assessment. Contact us for current pricing — we'll match the right plan to your goals.</p>
+        <p class="section-sub">All memberships include full facility access, all indoor &amp; outdoor classes, towel service, and a complimentary InBody 770 welcome scan. A $100 joining fee applies. All prices + HST.</p>
 
         <div class="pricing-grid">
 
           <div class="pricing-card">
-            <h3>Basic</h3>
-            <div class="pricing-price">—</div>
-            <p class="pricing-period">per month · 12-month commitment</p>
+            <div class="pricing-badge" style="background:rgba(255,255,255,0.08);color:var(--gray-2);box-shadow:none">Limited Offer</div>
+            <h3>1 Month Trial</h3>
+            <div class="pricing-price"><sup style="font-size:1.6rem;vertical-align:super;line-height:0">$</sup>145</div>
+            <p class="pricing-period">+ HST · one per person</p>
             <ul class="pricing-features">
               <li>Full gym floor access</li>
-              <li>Towel service</li>
-              <li>Locker &amp; showers</li>
+              <li>All group classes included</li>
+              <li>Towel service &amp; amenities</li>
               <li>InBody 770 welcome scan</li>
-              <li>ACE Bar &amp; Co. access</li>
+              <li>Rooftop track access</li>
             </ul>
-            <a href="tel:+19058333130" class="btn-secondary">Call for Pricing</a>
+            <a href="tel:+19058333130" class="btn-secondary">Call to Sign Up</a>
+          </div>
+
+          <div class="pricing-card">
+            <h3>6 Month</h3>
+            <div class="pricing-price"><sup style="font-size:1.6rem;vertical-align:super;line-height:0">$</sup>55</div>
+            <p class="pricing-period">bi-weekly · $100 joining fee</p>
+            <ul class="pricing-features">
+              <li>Full gym floor access</li>
+              <li>All indoor &amp; outdoor classes</li>
+              <li>Towel service &amp; amenities</li>
+              <li>InBody 770 welcome scan</li>
+              <li>Free 3-day guest pass</li>
+            </ul>
+            <div class="pricing-alt">
+              <p class="pricing-alt-label">Or pay in full</p>
+              <div class="pricing-alt-row">
+                <span class="alt-price">$660</span>
+                <span class="alt-detail">+ $50 joining fee</span>
+              </div>
+            </div>
+            <a href="tel:+19058333130" class="btn-secondary">Call to Sign Up</a>
           </div>
 
           <div class="pricing-card featured">
             <div class="pricing-badge">Most Popular</div>
-            <h3>Premium</h3>
-            <div class="pricing-price">—</div>
-            <p class="pricing-period">per month · 12-month commitment</p>
+            <h3>12 Month</h3>
+            <div class="pricing-price"><sup style="font-size:1.6rem;vertical-align:super;line-height:0">$</sup>47<span style="font-size:2rem">.50</span></div>
+            <p class="pricing-period">bi-weekly · $100 joining fee</p>
             <ul class="pricing-features">
-              <li>Everything in Basic</li>
-              <li>Group classes included</li>
-              <li>Sauna access</li>
-              <li>Quarterly InBody 770 scans</li>
-              <li>Rooftop track access</li>
-              <li>Priority booking</li>
+              <li>Full gym floor access</li>
+              <li>All indoor &amp; outdoor classes</li>
+              <li>Towel service &amp; amenities</li>
+              <li>InBody 770 welcome scan</li>
+              <li>Free 3-day guest pass</li>
             </ul>
+            <div class="pricing-alt">
+              <p class="pricing-alt-label">Or pay in full</p>
+              <div class="pricing-alt-row">
+                <span class="alt-price">$1,140</span>
+                <span class="alt-detail">+ $100 joining fee</span>
+              </div>
+            </div>
             <a href="../index.html" class="btn-primary">Get Started Free</a>
-          </div>
-
-          <div class="pricing-card">
-            <h3>Elite</h3>
-            <div class="pricing-price">—</div>
-            <p class="pricing-period">per month · 12-month commitment</p>
-            <ul class="pricing-features">
-              <li>Everything in Premium</li>
-              <li>Personal training sessions</li>
-              <li>Nutrition consultation</li>
-              <li>Monthly InBody 770 scans</li>
-              <li>Weight management program</li>
-              <li>Dedicated trainer support</li>
-            </ul>
-            <a href="tel:+19058333130" class="btn-secondary">Call for Pricing</a>
           </div>
 
         </div>
 
-        <p style="text-align:center;font-size:0.85rem;color:var(--gray-3);margin-top:28px">
+        <div class="rates-note" style="margin-top:28px;margin-bottom:0" role="note">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div><strong>Facility Enhancement Fee (FEF):</strong> A $30/year fee is charged 30 days after membership start, then annually. This goes directly toward equipment upgrades and maintaining a world-class training environment.</div>
+        </div>
+
+        <p style="text-align:center;font-size:0.85rem;color:var(--gray-3);margin-top:20px">
           Corporate and group rates available. <a href="promos.html" style="color:var(--red);text-decoration:none">View promotions →</a>
         </p>
       </div>
     </section>
 
-    <!-- ADD-ONS & DAY PASSES -->
-    <section class="add-ons-section" aria-labelledby="addons-h2">
+    <!-- CLASS PACKS -->
+    <section class="add-ons-section" aria-labelledby="packs-h2">
       <div class="container">
-        <span class="section-label">Flexible Options</span>
-        <h2 class="section-title" id="addons-h2">Day Passes &amp; <em>Class Packs</em></h2>
-        <p class="section-sub">No membership required for class packs or day passes. Drop in whenever works for you.</p>
+        <span class="section-label">No Membership Required</span>
+        <h2 class="section-title" id="packs-h2">Class Packs &amp; <em>Drop-Ins</em></h2>
+        <p class="section-sub">Buy class credits without a membership. Valid for spin, HIIT, yoga, and strength classes. Age 13+. Not valid for personal training sessions.</p>
 
-        <div class="add-ons-grid">
-          <div class="add-on-card">
-            <div class="add-on-price">$10</div>
-            <p class="add-on-period">Per Visit</p>
-            <h3>Day Pass</h3>
-            <p>Full access to the gym floor, locker rooms, and amenities for a single day. Towel service not included with day pass.</p>
+        <div class="class-packs-grid">
+          <div class="pack-card">
+            <div class="pack-price">$30</div>
+            <p class="pack-credits">1 Credit · Valid 1 month</p>
+            <h3>Single Class</h3>
+            <p>Drop in for any scheduled class. Must be 13 or older to attend.</p>
           </div>
-          <div class="add-on-card">
-            <div class="add-on-price">—</div>
-            <p class="add-on-period">Per Pack</p>
-            <h3>Class Packs</h3>
-            <p>Purchase spin, HIIT, yoga, or strength classes individually or in packs. No membership needed. Contact us for current class pack pricing.</p>
+          <div class="pack-card">
+            <div class="pack-price">$80</div>
+            <p class="pack-credits">3 Credits · Valid 3 months</p>
+            <h3>3 Class Pack</h3>
+            <p>Great for trying out a variety of classes at your own pace.</p>
           </div>
-          <div class="add-on-card">
-            <div class="add-on-price">—</div>
-            <p class="add-on-period">Per Session</p>
-            <h3>Personal Training</h3>
-            <p>Book individual personal training sessions with a certified ACE trainer. Available as one-off sessions or multi-session packages.</p>
+          <div class="pack-card" style="border-color:rgba(215,26,33,0.25)">
+            <div class="pack-price">$135</div>
+            <p class="pack-credits">5 Credits · Valid 1 year</p>
+            <h3>5 Class Pack</h3>
+            <p>Best value for occasional attendees. Credits valid for a full year.</p>
+          </div>
+          <div class="pack-card">
+            <div class="pack-price">$250</div>
+            <p class="pack-credits">10 Credits · Valid 1 year</p>
+            <h3>10 Class Pack</h3>
+            <p>Most credits per dollar. A full year to use them however you like.</p>
+          </div>
+        </div>
+
+        <div class="extras-grid">
+          <div class="pack-card pack-card-horizontal">
+            <div style="flex-shrink:0">
+              <div class="pack-price" style="font-size:2.2rem">$90</div>
+              <p class="pack-credits" style="margin-bottom:0">+ HST · Valid 1 week</p>
+            </div>
+            <div>
+              <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:6px">Week Pass</h3>
+              <p style="font-size:0.82rem;color:var(--gray-3);line-height:1.6">Full gym access for one week. Perfect for visitors or testing the facility.</p>
+            </div>
+          </div>
+          <div class="pack-card pack-card-horizontal">
+            <div style="flex-shrink:0">
+              <div class="pack-price" style="font-size:2.2rem">$49<span style="font-size:1.2rem">.95</span></div>
+              <p class="pack-credits" style="margin-bottom:0">Single · or 3-pack $99.95</p>
+            </div>
+            <div>
+              <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:6px">InBody 770 Scan</h3>
+              <p style="font-size:0.82rem;color:var(--gray-3);line-height:1.6">Book a stand-alone body composition scan. <a href="personal-training.html#inbody" style="color:var(--red);text-decoration:none">Learn more →</a></p>
+            </div>
           </div>
         </div>
       </div>

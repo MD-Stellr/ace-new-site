@@ -120,6 +120,12 @@
       .promo-block-inner { grid-template-columns: 1fr; gap: 28px; }
       .promo-img { height: 200px; }
       .promo-features { grid-template-columns: 1fr; }
+      .promos-section { padding: 64px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .promos-section { padding: 48px 0; }
+      .promo-block { padding: 28px 20px; }
     }
   </style>
 </head>
@@ -140,8 +146,8 @@
         </div>
         <a href="classes.html" class="nav-link">Classes</a>
         <a href="rates.html" class="nav-link">Rates</a>
-        <div class="nav-item open">
-          <button class="nav-link dropdown-btn active" aria-expanded="true" aria-haspopup="true">More <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+        <div class="nav-item">
+          <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">More <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
           <div class="nav-dropdown" role="menu">
             <a href="promos.html" role="menuitem" style="color:var(--white)">Promos</a>
             <a href="rent-our-roof.html" role="menuitem">Rent Our Roof</a>

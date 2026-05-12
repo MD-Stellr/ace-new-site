@@ -158,9 +158,15 @@
       .contact-box { padding: 36px 24px; }
     }
 
+    @media (max-width: 768px) {
+      .roof-intro, .rates-table-section, .day-pass-section, .gallery-roof { padding: 64px 0; }
+    }
+
     @media (max-width: 560px) {
       .gallery-roof-grid { grid-template-columns: 1fr; }
       .rates-table th, .rates-table td { padding: 12px 14px; }
+      .roof-intro, .rates-table-section, .day-pass-section, .gallery-roof { padding: 48px 0; }
+      .contact-box h2 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
     }
   </style>
 </head>
@@ -181,8 +187,8 @@
         </div>
         <a href="classes.html" class="nav-link">Classes</a>
         <a href="rates.html" class="nav-link">Rates</a>
-        <div class="nav-item open">
-          <button class="nav-link dropdown-btn active" aria-expanded="true" aria-haspopup="true">More <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+        <div class="nav-item">
+          <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">More <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
           <div class="nav-dropdown" role="menu">
             <a href="promos.html" role="menuitem">Promos</a>
             <a href="rent-our-roof.html" role="menuitem" style="color:var(--white)">Rent Our Roof</a>

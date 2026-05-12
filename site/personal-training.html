@@ -136,6 +136,51 @@
       line-height: 1.7;
     }
 
+    /* InBody section */
+    .inbody-section {
+      padding: 96px 0;
+    }
+
+    .inbody-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .inbody-visual {
+      height: 480px;
+      border-radius: var(--radius-xl);
+    }
+
+    .inbody-stats {
+      display: flex;
+      gap: 36px;
+      margin: 28px 0;
+    }
+
+    .inbody-stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .inbody-stat span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray-3);
+    }
+
+    @media (max-width: 900px) {
+      .inbody-grid { grid-template-columns: 1fr; gap: 40px; }
+      .inbody-visual { height: 280px; }
+    }
+
     .process-section { padding: 96px 0; }
 
     .process-grid {
@@ -169,6 +214,21 @@
       .detail-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr; gap: 40px; }
     }
+
+    @media (max-width: 768px) {
+      .trainer-section  { padding: 64px 0; }
+      .services-detail  { padding: 64px 0; }
+      .inbody-section   { padding: 64px 0; }
+      .process-section  { padding: 64px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .trainer-section  { padding: 48px 0; }
+      .services-detail  { padding: 48px 0; }
+      .inbody-section   { padding: 48px 0; }
+      .process-section  { padding: 48px 0; }
+      .trainer-card     { padding: 28px 20px; gap: 36px; }
+    }
   </style>
 </head>
 <body>
@@ -183,12 +243,13 @@
       </button>
       <div class="nav-menu" id="navMenu">
         <a href="index.html" class="nav-link">Home</a>
-        <div class="nav-item open">
-          <button class="nav-link dropdown-btn active" aria-expanded="true" aria-haspopup="true">
+        <div class="nav-item">
+          <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">
             Services <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
           </button>
           <div class="nav-dropdown" role="menu">
             <a href="personal-training.html" role="menuitem" style="color:var(--white)">Personal Training</a>
+            <a href="personal-training.html#inbody" role="menuitem">InBody 770</a>
             <a href="facilities.html" role="menuitem">Facilities</a>
           </div>
         </div>
@@ -303,6 +364,42 @@
       </div>
     </section>
 
+    <!-- INBODY 770 -->
+    <section class="inbody-section" id="inbody" aria-labelledby="inbody-h2">
+      <div class="container">
+        <div class="inbody-grid">
+          <div class="inbody-visual img-ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="13" y2="14"/></svg>
+            <span>InBody 770 Machine</span>
+          </div>
+          <div>
+            <span class="section-label">Precision Tracking</span>
+            <h2 class="section-title" id="inbody-h2">InBody 770<br/><em>Body Analysis</em></h2>
+            <p class="section-sub" style="margin-bottom:0">Clinical-grade body composition in 60 seconds. Know exactly what's changing — muscle mass, fat, hydration, and metabolic rate.</p>
+            <div class="inbody-stats">
+              <div class="inbody-stat">
+                <strong>30</strong>
+                <span>Impedance<br/>Values</span>
+              </div>
+              <div class="inbody-stat">
+                <strong>6</strong>
+                <span>Test<br/>Frequencies</span>
+              </div>
+              <div class="inbody-stat">
+                <strong>60s</strong>
+                <span>Scan<br/>Time</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem;color:var(--gray-2);line-height:1.8;margin-bottom:28px">The InBody 770 uses 6 frequencies to generate 30 impedance values — no other device in the world matches its accuracy. With it, your trainer tracks muscle gain, fat loss, and fluid distribution in each body segment. Basic members receive a complimentary welcome scan; Premium members scan quarterly; Elite members scan monthly.</p>
+            <a href="../index.html" class="btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Book My Free Consultation + Scan
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PROCESS -->
     <section class="process-section" aria-labelledby="process-h2">
       <div class="container">
@@ -374,7 +471,7 @@
             <a href="https://www.youtube.com/@ACEPerformanceGym" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
           </div>
         </div>
-        <nav class="footer-col" aria-label="Services"><h4>Services</h4><ul><li><a href="personal-training.html">Personal Training</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="classes.html">Classes</a></li></ul></nav>
+        <nav class="footer-col" aria-label="Services"><h4>Services</h4><ul><li><a href="personal-training.html">Personal Training</a></li><li><a href="personal-training.html#inbody">InBody 770</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="classes.html">Classes</a></li></ul></nav>
         <nav class="footer-col" aria-label="Explore"><h4>Explore</h4><ul><li><a href="rates.html">Rates</a></li><li><a href="promos.html">Promos</a></li><li><a href="rent-our-roof.html">Rent Our Roof</a></li><li><a href="awards.html">Awards</a></li></ul></nav>
         <div class="footer-col"><h4>Contact</h4><address>1700 King Rd, Unit #32<br/>King City, ON L7B 0N1</address><a href="tel:+19058333130">(905) 833-3130</a><a href="mailto:info@acegym.club">info@acegym.club</a><div class="footer-hours"><p>Mon–Fri: 5:00 AM – 10:00 PM</p><p>Sat–Sun: 7:00 AM – 7:00 PM</p></div></div>
       </div>

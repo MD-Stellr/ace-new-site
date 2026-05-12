@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://www.acegym.club/og-awards.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/main.css" />
   <style>
     .awards-intro {
@@ -55,7 +55,18 @@
       gap: 28px;
     }
     @media (max-width: 960px) { .awards-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 560px) { .awards-grid { grid-template-columns: 1fr; } }
+
+    @media (max-width: 768px) {
+      .awards-intro  { padding: 64px 0 40px; }
+      .awards-section { padding: 24px 0 64px; }
+      .badge-strip   { padding: 48px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .awards-grid   { grid-template-columns: 1fr; }
+      .awards-intro  { padding: 48px 0 32px; }
+      .awards-section { padding: 20px 0 48px; }
+    }
 
     .award-card {
       background: var(--glass-bg);
@@ -169,44 +180,33 @@
 </head>
 <body>
 
-  <!-- ══ NAV ══ -->
-  <nav class="site-nav" id="siteNav">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="../ace-logo.png" alt="ACE Performance Gym" width="90" height="84" />
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li class="has-dropdown">
-          <a href="#" class="dropdown-toggle">Services <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-          <ul class="dropdown">
-            <li><a href="personal-training.html">Personal Training</a></li>
-            <li><a href="classes.html">Group Classes</a></li>
-            <li><a href="inbody-770.html">InBody 770 Scan</a></li>
-            <li><a href="weight-management.html">Weight Management</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown">
-          <a href="#" class="dropdown-toggle">Facilities <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-          <ul class="dropdown">
-            <li><a href="facilities.html">Our Facilities</a></li>
-            <li><a href="rent-our-roof.html">Rent Our Roof</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown">
-          <a href="#" class="dropdown-toggle">Membership <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-          <ul class="dropdown">
-            <li><a href="rates.html">Rates</a></li>
-            <li><a href="promos.html">Promotions</a></li>
-            <li><a href="vouchers.html">Gift Vouchers</a></li>
-          </ul>
-        </li>
-        <li><a href="awards.html" class="active">Awards</a></li>
-        <li><a href="../index.html" class="btn-primary nav-cta">Free 3-Day Pass</a></li>
-      </ul>
+  <!-- NAV -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="ACE Performance Gym — Home"><img src="../ace-logo.png" alt="ACE Performance Gym" width="120" height="42" /></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-item">
+          <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">Services <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+          <div class="nav-dropdown" role="menu">
+            <a href="personal-training.html" role="menuitem">Personal Training</a>
+            <a href="personal-training.html#inbody" role="menuitem">InBody 770</a>
+            <a href="facilities.html" role="menuitem">Facilities</a>
+          </div>
+        </div>
+        <a href="classes.html" class="nav-link">Classes</a>
+        <a href="rates.html" class="nav-link">Rates</a>
+        <div class="nav-item">
+          <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">More <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+          <div class="nav-dropdown" role="menu">
+            <a href="promos.html" role="menuitem">Promos</a>
+            <a href="rent-our-roof.html" role="menuitem">Rent Our Roof</a>
+            <a href="awards.html" role="menuitem" style="color:var(--white)">Awards</a>
+          </div>
+        </div>
+      </div>
+      <a href="../index.html" class="nav-cta">FREE 3 Day Pass</a>
     </div>
   </nav>
 
@@ -345,52 +345,27 @@
 
   </main>
 
-  <!-- ══ FOOTER ══ -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="../ace-logo.png" alt="ACE Performance Gym" width="80" height="74" />
-        <p>King City's premier performance gym — where community and results meet.</p>
+  <!-- FOOTER -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../ace-logo.png" alt="ACE Performance Gym" width="120" height="46" />
+          <p class="footer-tagline">The Boutique Gym for All Your Fitness Needs.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/aceperformancegym" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/ACEPerformanceGym" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.tiktok.com/@acegym.club" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.04a8.16 8.16 0 0 0 4.77 1.52V7.11a4.85 4.85 0 0 1-1-.42z"/></svg></a>
+            <a href="https://www.youtube.com/@ACEPerformanceGym" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <nav class="footer-col" aria-label="Services"><h4>Services</h4><ul><li><a href="personal-training.html">Personal Training</a></li><li><a href="personal-training.html#inbody">InBody 770</a></li><li><a href="facilities.html">Facilities</a></li><li><a href="classes.html">Classes</a></li></ul></nav>
+        <nav class="footer-col" aria-label="Explore"><h4>Explore</h4><ul><li><a href="rates.html">Rates</a></li><li><a href="promos.html">Promos</a></li><li><a href="rent-our-roof.html">Rent Our Roof</a></li><li><a href="awards.html">Awards</a></li></ul></nav>
+        <div class="footer-col"><h4>Contact</h4><address>1700 King Rd, Unit #32<br/>King City, ON L7B 0N1</address><a href="tel:+19058333130">(905) 833-3130</a><a href="mailto:info@acegym.club">info@acegym.club</a><div class="footer-hours"><p>Mon–Fri: 5:00 AM – 10:00 PM</p><p>Sat–Sun: 7:00 AM – 7:00 PM</p></div></div>
       </div>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <p class="footer-col-title">Services</p>
-          <ul>
-            <li><a href="personal-training.html">Personal Training</a></li>
-            <li><a href="classes.html">Group Classes</a></li>
-            <li><a href="inbody-770.html">InBody 770 Scan</a></li>
-            <li><a href="weight-management.html">Weight Management</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-title">Facility</p>
-          <ul>
-            <li><a href="facilities.html">Our Facilities</a></li>
-            <li><a href="rent-our-roof.html">Rent Our Roof</a></li>
-            <li><a href="awards.html">Awards</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-title">Membership</p>
-          <ul>
-            <li><a href="rates.html">Rates</a></li>
-            <li><a href="promos.html">Promotions</a></li>
-            <li><a href="vouchers.html">Gift Vouchers</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-title">Contact</p>
-          <ul>
-            <li><a href="tel:+19058333130">(905) 833-3130</a></li>
-            <li><a href="mailto:info@acegym.club">info@acegym.club</a></li>
-            <li>2001 King Road, King City, ON</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <p>&copy; 2025 ACE Performance Gym. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p>© 2025 ACE Performance Gym. All rights reserved.</p>
+        <p>1700 King Rd, Unit #32 · King City, ON · <a href="tel:+19058333130">(905) 833-3130</a></p>
       </div>
     </div>
   </footer>

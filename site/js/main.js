@@ -64,7 +64,6 @@ const currentFile = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-link[href]').forEach(link => {
   if (link.getAttribute('href') === currentFile) {
     link.classList.add('active');
-    link.closest('.nav-item')?.classList.add('open');
   }
 });
 

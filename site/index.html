@@ -67,6 +67,39 @@
   </script>
 
   <style>
+    /* ── Marquee Banner ────────────────────────────────── */
+    .pillars-marquee {
+      overflow: hidden;
+      width: 100%;
+      line-height: 0;
+      position: relative;
+    }
+    .pillars-track {
+      display: flex;
+      flex-wrap: nowrap;
+      width: fit-content;
+      will-change: transform;
+      -webkit-animation: pillars-scroll 28s linear infinite;
+              animation: pillars-scroll 28s linear infinite;
+    }
+    .pillars-track img {
+      height: 52px;
+      width: auto;
+      flex: 0 0 auto;
+      display: block;
+    }
+    @-webkit-keyframes pillars-scroll {
+      from { -webkit-transform: translateX(0); transform: translateX(0); }
+      to   { -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+    }
+    @keyframes pillars-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pillars-track { animation: none; -webkit-animation: none; }
+    }
+
     /* ── Home Hero ─────────────────────────────────────── */
     .hero {
       position: relative;
@@ -717,6 +750,26 @@
       padding-right: max(48px, 6vw);
     }
 
+    @media (max-width: 768px) {
+      .about       { padding: 64px 0; }
+      .services    { padding: 64px 0; }
+      .amenities   { padding-top: 64px; }
+      .gallery     { padding: 64px 0; }
+      .testimonials { padding: 64px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .about       { padding: 48px 0; }
+      .services    { padding: 48px 0; }
+      .amenities   { padding-top: 48px; }
+      .gallery     { padding: 48px 0; }
+      .testimonials { padding: 48px 0; }
+      .hero .container { padding-left: 20px; padding-right: 20px; }
+      .about-card  { padding: 32px 22px; }
+      .sc-body     { padding: 20px 20px 24px; }
+      .sc-roof .sc-body { padding: 24px 20px; }
+    }
+
     /* Volume button */
     .hero-vol {
       position: absolute;
@@ -808,8 +861,7 @@
           </button>
           <div class="nav-dropdown" role="menu">
             <a href="personal-training.html" role="menuitem">Personal Training</a>
-            <a href="weight-management.html" role="menuitem">Weight Management</a>
-            <a href="inbody-770.html" role="menuitem">InBody 770</a>
+            <a href="personal-training.html#inbody" role="menuitem">InBody 770</a>
             <a href="facilities.html" role="menuitem">Facilities</a>
           </div>
         </div>
@@ -824,7 +876,6 @@
             <a href="promos.html" role="menuitem">Promos</a>
             <a href="rent-our-roof.html" role="menuitem">Rent Our Roof</a>
             <a href="awards.html" role="menuitem">Awards</a>
-            <a href="vouchers.html" role="menuitem">Vouchers</a>
           </div>
         </div>
       </div>
@@ -871,33 +922,21 @@
   </section>
 
 
-  <!-- TRUST BAR -->
-  <div class="trust-bar" role="complementary" aria-label="Trust indicators">
-    <div class="container">
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        5-Star Rated
-      </div>
-      <div class="trust-divider" aria-hidden="true"></div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        25,000 Sq Ft Facility
-      </div>
-      <div class="trust-divider" aria-hidden="true"></div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        AI-Powered Equipment
-      </div>
-      <div class="trust-divider" aria-hidden="true"></div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Expert Certified Trainers
-      </div>
-      <div class="trust-divider" aria-hidden="true"></div>
-      <div class="trust-item">
-        <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        Community Awards Winner
-      </div>
+  <!-- Infinite scrolling marquee -->
+  <div class="pillars-marquee" aria-hidden="true">
+    <div class="pillars-track">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
+      <img src="../pillars-banner.png" alt="">
     </div>
   </div>
 
@@ -917,8 +956,8 @@
           <a href="personal-training.html" class="btn-primary" style="margin-top:8px">Book a Free Consultation</a>
         </div>
         <div class="about-card">
-          <div class="about-card-logo">ACE</div>
-          <div class="about-card-sub">Achieve · Conquer · Excel</div>
+          <img src="../ace-logo.png" alt="ACE Performance Gym" style="height:140px;width:auto;margin:0 auto 24px;" />
+          <img src="../pillars-banner.png" alt="Achieve · Conquer · Excel" style="width:100%;display:block;margin:0 auto 36px;border-radius:var(--radius-sm);" />
           <div class="about-stats">
             <div class="about-stat">
               <strong>25K</strong>
@@ -966,7 +1005,7 @@
       <div class="section-header-row">
         <div>
           <span class="section-label">What We Offer</span>
-          <h2 class="section-title" id="services-h2">Built for Every<br/>Goal. Every <em>Level.</em></h2>
+          <h2 class="section-title" id="services-h2">Built for<br/>Every Goal. Every <em>Level.</em></h2>
         </div>
         <p class="section-sub">From first-timers to competitive athletes — ACE has the space, equipment, and expertise for where you are and where you're going.</p>
       </div>
@@ -993,7 +1032,7 @@
         </a>
 
         <!-- 02 InBody 770 — top right -->
-        <a href="inbody-770.html" class="sc sc-inbody" aria-label="InBody 770 body scan">
+        <a href="personal-training.html#inbody" class="sc sc-inbody" aria-label="InBody 770 body scan">
           <div class="sc-media">
             <div class="img-ph">InBody 770</div>
           </div>
@@ -1019,7 +1058,7 @@
         </a>
 
         <!-- 04 Weight Management — bottom left -->
-        <a href="weight-management.html" class="sc sc-wm" aria-label="Weight management program">
+        <a href="personal-training.html" class="sc sc-wm" aria-label="Weight management program">
           <div class="sc-media">
             <div class="img-ph">Weight Management</div>
           </div>
@@ -1287,8 +1326,7 @@
           <h4>Services</h4>
           <ul>
             <li><a href="personal-training.html">Personal Training</a></li>
-            <li><a href="weight-management.html">Weight Management</a></li>
-            <li><a href="inbody-770.html">InBody 770</a></li>
+            <li><a href="personal-training.html#inbody">InBody 770</a></li>
             <li><a href="facilities.html">Facilities</a></li>
             <li><a href="classes.html">Classes</a></li>
           </ul>
@@ -1301,7 +1339,6 @@
             <li><a href="promos.html">Promos</a></li>
             <li><a href="rent-our-roof.html">Rent Our Roof</a></li>
             <li><a href="awards.html">Awards</a></li>
-            <li><a href="vouchers.html">Vouchers</a></li>
           </ul>
         </nav>
 
