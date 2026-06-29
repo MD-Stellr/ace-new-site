@@ -260,3 +260,76 @@ if ('IntersectionObserver' in window) {
 
   candidates.forEach(el => counterObs.observe(el));
 })();
+
+// ── Event popup — HIIT Club × Red Bull (3-Year Anniversary) ──
+(function eventPopup() {
+  const POPUP_ENABLED = true;                 // set false to disable site-wide
+  const TICKETS_URL   = 'https://tixfox.co/e/RtxNxgO50o';  // Red Bull event tickets
+  const STORAGE_KEY   = 'ace-redbull-2026-07-16';  // bump to re-show after a dismiss
+
+  if (!POPUP_ENABLED) return;
+  try { if (sessionStorage.getItem(STORAGE_KEY)) return; } catch (e) {}
+
+  const ticketAttrs = (TICKETS_URL && TICKETS_URL !== '#')
+    ? `href="${TICKETS_URL}" target="_blank" rel="noopener noreferrer"`
+    : `href="#" aria-disabled="true"`;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'ace-pop';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'HIIT Club x Red Bull rooftop event');
+  overlay.innerHTML = `
+    <div class="ace-pop-card">
+      <button class="ace-pop-close" type="button" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="ace-pop-media">
+        <img src="event-redbull.jpg" alt="Red Bull can on the ACE rooftop turf at golden hour" loading="lazy" />
+      </div>
+      <div class="ace-pop-banner">
+        <p class="ace-pop-eyebrow">ACE × Red Bull · 3-Year Anniversary</p>
+        <h2 class="ace-pop-title">HIIT Club <span>×</span> Red Bull</h2>
+        <p class="ace-pop-sub">A rooftop celebration where fitness, community &amp; energy collide.</p>
+      </div>
+      <div class="ace-pop-body">
+        <div class="ace-pop-facts">
+          <div class="ace-pop-fact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span><strong>July 16</strong> · 7 PM – Late</span>
+          </div>
+          <div class="ace-pop-fact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span><strong>ACE Performance Gym</strong> · Rooftop</span>
+          </div>
+        </div>
+        <p class="ace-pop-lead">Kick off with a 45-minute HIIT workout (7:15–8 PM) led by Massimo Barbera, then “The HIIT Battle” — two teams go head to head for entry into an exclusive Red Bull giveaway.</p>
+        <ul class="ace-pop-list">
+          <li>Complimentary Red Bull &amp; themed activations</li>
+          <li>Live DJ entertainment from 8 PM onwards</li>
+          <li>Incredible city views &amp; community</li>
+        </ul>
+        <a class="btn-primary ace-pop-cta" ${ticketAttrs}>Get Tickets</a>
+        <p class="ace-pop-note">Weather policy: in the event of unforeseen weather conditions, an alternate event date will be announced and communicated to all registered attendees.</p>
+      </div>
+    </div>`;
+
+  document.body.appendChild(overlay);
+
+  const close = () => {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+    setTimeout(() => overlay.remove(), 400);
+  };
+
+  overlay.querySelector('.ace-pop-close').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // Reveal after a short beat so the page settles first
+  setTimeout(() => {
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }, 1200);
+})();

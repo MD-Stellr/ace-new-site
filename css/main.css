@@ -1612,3 +1612,208 @@ button { font-family: inherit; }
   .hero-meta-item { padding: 11px 18px 12px; flex: 1 0 auto; }
   .hero-meta-item strong { font-size: 1.55rem; }
 }
+
+/* ════════════════════════════════════════════════════════
+   Event popup — HIIT Club × Red Bull (3-Year Anniversary)
+   Injected site-wide by js/main.js. Remove that block to
+   disable, or flip POPUP_ENABLED in main.js.
+   ════════════════════════════════════════════════════════ */
+.ace-pop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s var(--ease), visibility 0s linear 0.35s;
+}
+.ace-pop.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s var(--ease);
+}
+
+.ace-pop-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: linear-gradient(180deg, #121212 0%, #0a0a0a 100%);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  transform: translateY(16px) scale(0.97);
+  opacity: 0;
+  transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
+  -webkit-overflow-scrolling: touch;
+}
+.ace-pop.is-open .ace-pop-card {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.ace-pop-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.45);
+  color: var(--gray-1);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.ace-pop-close:hover { background: var(--red); color: #fff; }
+.ace-pop-close svg { width: 18px; height: 18px; }
+
+/* Image band */
+.ace-pop-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  overflow: hidden;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  background: #0a0a0a;
+}
+.ace-pop-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Soft fade so the image melts into the dark title banner below */
+.ace-pop-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10,10,10,0) 55%, rgba(10,10,10,0.9) 100%);
+}
+
+/* Accent banner */
+.ace-pop-banner {
+  padding: 20px 28px 18px;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(215,26,33,0.34) 0%, rgba(215,26,33,0) 60%),
+    linear-gradient(180deg, #1a0608 0%, #120303 100%);
+  border-bottom: 1px solid var(--line);
+}
+.ace-pop-eyebrow {
+  font-family: var(--font-subtitle);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--red-light);
+  margin: 0 0 10px;
+}
+.ace-pop-title {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 0.96;
+  letter-spacing: 0.01em;
+  color: var(--white);
+  margin: 0;
+}
+.ace-pop-title span { color: var(--red); }
+.ace-pop-sub {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--gray-2);
+  margin: 8px 0 0;
+}
+
+/* Body */
+.ace-pop-body { padding: 20px 28px 26px; }
+
+.ace-pop-facts {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin: 0 0 18px;
+}
+.ace-pop-fact {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 0.9rem;
+  color: var(--gray-1);
+}
+.ace-pop-fact svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--red-light);
+}
+.ace-pop-fact strong { font-weight: 600; }
+
+.ace-pop-lead {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--gray-2);
+  margin: 0 0 16px;
+}
+
+.ace-pop-list {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.ace-pop-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--gray-1);
+}
+.ace-pop-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+}
+
+.ace-pop-cta {
+  width: 100%;
+  font-size: 0.82rem;
+  padding: 17px 32px;
+}
+
+.ace-pop-note {
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: var(--gray-3);
+  margin: 16px 0 0;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .ace-pop { padding: 14px; }
+  .ace-pop-banner { padding: 20px 22px 16px; }
+  .ace-pop-body { padding: 18px 22px 22px; }
+  .ace-pop-title { font-size: 2.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ace-pop, .ace-pop-card { transition-duration: 0.01ms; }
+}
