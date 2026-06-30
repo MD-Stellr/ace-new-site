@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <title>Events | ACE Performance Gym — King City</title>
+  <meta name="description" content="Upcoming events at ACE Performance Gym in King City — including HIIT Club × Red Bull, our 3-Year Anniversary rooftop celebration on July 16. Workouts, live DJ, and community." />
+  <link rel="canonical" href="https://www.acegym.club/events" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Events | ACE Performance Gym" />
+  <meta property="og:description" content="HIIT Club × Red Bull — a rooftop celebration where fitness, community & energy collide. July 16 in King City." />
+  <meta property="og:url" content="https://www.acegym.club/events" />
+  <meta property="og:image" content="https://www.acegym.club/event-redbull.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* ── Section rhythm ────────────────────────────────── */
+    .ev-section { padding: 130px 0; }
+    .ev-section.alt {
+      background: var(--black-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ── Featured event split ──────────────────────────── */
+    .event-media { height: 560px; }
+
+    .event-eyebrow {
+      font-family: var(--font-subtitle);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      margin-bottom: 18px;
+    }
+    .event-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: 0.015em;
+      text-transform: uppercase;
+      line-height: 0.96;
+      margin: 0 0 14px;
+    }
+    .event-title span { color: var(--red); padding: 0 0.12em; }
+    .event-sub {
+      font-size: 1.05rem;
+      color: var(--gray-1);
+      line-height: 1.6;
+      margin-bottom: 30px;
+      max-width: 36ch;
+    }
+
+    /* ── Facts row ─────────────────────────────────────── */
+    .event-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+    .event-fact {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      background: var(--black-3);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 13px 18px;
+      font-family: var(--font-subtitle);
+      font-size: 0.86rem;
+      color: var(--gray-2);
+    }
+    .event-fact svg { color: var(--red-light); flex-shrink: 0; }
+    .event-fact strong { color: var(--white); font-weight: 600; }
+
+    /* ── Highlights list ───────────────────────────────── */
+    .event-list {
+      list-style: none;
+      margin: 0 0 34px;
+      padding: 0;
+      display: grid;
+      gap: 13px;
+    }
+    .event-list li {
+      position: relative;
+      padding-left: 30px;
+      font-size: 0.97rem;
+      color: var(--gray-2);
+      line-height: 1.55;
+    }
+    .event-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 8px; height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+    }
+
+    .event-note {
+      margin-top: 26px;
+      font-size: 0.78rem;
+      color: var(--gray-3);
+      line-height: 1.65;
+      max-width: 52ch;
+    }
+
+    @media (max-width: 900px) {
+      .event-media { height: 400px; }
+    }
+    @media (max-width: 768px) {
+      .ev-section { padding: 84px 0; }
+    }
+    @media (max-width: 560px) {
+      .ev-section { padding: 62px 0; }
+      .event-media { height: 300px; }
+      .event-fact { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="container">
+      <a href="/" class="nav-logo" aria-label="ACE Performance Gym — Home">
+        <img src="ace-logo.png" alt="ACE Performance Gym" width="120" height="42" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-menu" id="navMenu">
+        <button class="nav-close-btn" id="navClose" aria-label="Close navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <a href="/" class="nav-link">Home</a>
+        <div class="nav-item">
+          <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="/personal-training" role="menuitem">Personal Training</a>
+            <a href="/personal-training#inbody" role="menuitem">InBody 770</a>
+            <a href="/facilities" role="menuitem">Facilities</a>
+          </div>
+        </div>
+        <a href="/classes" class="nav-link">Classes</a>
+        <a href="/rates" class="nav-link">Rates</a>
+        <div class="nav-item">
+          <button class="nav-link dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg class="chevron" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="/events" class="active" role="menuitem">Events</a>
+            <a href="/promos" role="menuitem">Promos</a>
+            <a href="/rent-our-roof" role="menuitem">Rent Our Roof</a>
+            <a href="/awards" role="menuitem">Awards</a>
+          </div>
+        </div>
+      </div>
+      <a href="/landing" class="nav-cta">FREE 3 Day Pass</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-labelledby="page-title">
+    <div class="page-hero-bg">
+      <img src="roof-hero.jpg" alt="The ACE Performance Gym rooftop turf at golden hour" />
+    </div>
+    <div class="page-hero-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page">Events</span>
+        </nav>
+        <span class="section-label">What's On</span>
+        <h1 class="section-title" id="page-title">ACE <em>Events</em></h1>
+        <p class="page-hero-sub">More than a gym — a community. From rooftop celebrations to head-to-head challenges, here's what's coming up at ACE Performance Gym.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- FEATURED EVENT — HIIT CLUB × RED BULL -->
+    <section class="ev-section" aria-labelledby="redbull-h2">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="section-label">Upcoming Event</span>
+            <h2 class="section-title" id="redbull-h2">Don't Miss<br/><em>What's Next</em></h2>
+          </div>
+          <p class="section-sub">Tickets are limited and these events fill fast. Secure your spot below and join the ACE community for the next big one.</p>
+        </div>
+
+        <div class="split wide-media">
+          <div class="media-frame solo event-media" data-reveal="left">
+            <img src="event-redbull.jpg" alt="Red Bull can on the ACE rooftop turf at golden hour" />
+            <span class="media-tag">July 16 · ACE Rooftop</span>
+          </div>
+          <div data-reveal="right">
+            <p class="event-eyebrow">ACE × Red Bull · 3-Year Anniversary</p>
+            <h2 class="event-title">HIIT Club <span>×</span> Red Bull</h2>
+            <p class="event-sub">A rooftop celebration where fitness, community &amp; energy collide.</p>
+
+            <div class="event-facts">
+              <div class="event-fact">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span><strong>July 16</strong> · 7 PM – Late</span>
+              </div>
+              <div class="event-fact">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span><strong>ACE Performance Gym</strong> · Rooftop</span>
+              </div>
+            </div>
+
+            <p class="lead">Kick off with a 45-minute HIIT workout (7:15–8 PM) led by Massimo Barbera, then “The HIIT Battle” — two teams go head to head for entry into an exclusive Red Bull giveaway.</p>
+
+            <ul class="event-list">
+              <li>Complimentary Red Bull &amp; themed activations</li>
+              <li>Live DJ entertainment from 8 PM onwards</li>
+              <li>Incredible city views &amp; community</li>
+            </ul>
+
+            <a class="btn-primary" href="https://tixfox.co/e/RtxNxgO50o" target="_blank" rel="noopener noreferrer">Get Tickets</a>
+
+            <p class="event-note">Weather policy: in the event of unforeseen weather conditions, an alternate event date will be announced and communicated to all registered attendees.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner" aria-labelledby="events-cta-h2">
+      <div class="container">
+        <span class="section-label">Stay in the Loop</span>
+        <h2 class="section-title" id="events-cta-h2">Be First to <em>Know</em></h2>
+        <p class="section-sub">New events drop throughout the year. Follow us or come train with a FREE 3 Day Pass and you'll never miss what's next.</p>
+        <div class="cta-btns">
+          <a href="https://tixfox.co/e/RtxNxgO50o" target="_blank" rel="noopener noreferrer" class="btn-primary">Get Event Tickets</a>
+          <a href="/landing" class="btn-secondary">Get My FREE 3 Day Pass</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="ace-logo.png" alt="ACE Performance Gym" width="120" height="46" />
+          <p class="footer-tagline">The Boutique Gym for All Your Fitness Needs.</p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/aceperformancegym" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/ACEPerformanceGym" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://www.tiktok.com/@acegym.club" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V9.04a8.16 8.16 0 0 0 4.77 1.52V7.11a4.85 4.85 0 0 1-1-.42z"/></svg></a>
+            <a href="https://www.youtube.com/@ACEPerformanceGym" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="#000" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <nav class="footer-col" aria-label="Services"><h4>Services</h4><ul><li><a href="/personal-training">Personal Training</a></li><li><a href="/personal-training#inbody">InBody 770</a></li><li><a href="/facilities">Facilities</a></li><li><a href="/classes">Classes</a></li></ul></nav>
+        <nav class="footer-col" aria-label="Explore"><h4>Explore</h4><ul><li><a href="/events">Events</a></li><li><a href="/rates">Rates</a></li><li><a href="/promos">Promos</a></li><li><a href="/rent-our-roof">Rent Our Roof</a></li><li><a href="/awards">Awards</a></li></ul></nav>
+        <div class="footer-col"><h4>Contact</h4><address>1700 King Rd, Unit #32<br/>King City, ON L7B 0N1</address><a href="tel:+19058333130">(905) 833-3130</a><a href="mailto:info@acegym.club">info@acegym.club</a><div class="footer-hours"><p>Mon–Fri: 5:00 AM – 10:00 PM</p><p>Sat–Sun: 7:00 AM – 7:00 PM</p></div></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 ACE Performance Gym. All rights reserved.</p>
+        <p>1700 King Rd, Unit #32 · King City, ON · <a href="tel:+19058333130">(905) 833-3130</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
